@@ -1,0 +1,63 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Underwater Image Enhancement: An Overview</title>
+    <style>
+     body {
+        font-family: Arial, sans-serif;
+	background-image: url('image3.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        margin: 0; /* Reset default margin */
+    }
+    header, nav {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        top: 0;
+    }
+    section {
+        padding-top: 70px; /* Adjust this value to leave space for the fixed header */
+        margin: 20px;
+        background-color: rgba(242, 242, 242, 0.8);
+    } 
+
+	nav a {
+            padding: 14px 20px;
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+       
+        .image-example {
+            width: 300px;
+        }
+        .enhanced {
+            filter: contrast(1.2) saturate(1.2);
+        }
+
+	.image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px; /* Add margin between images and button */
+        }
+	  button {
+            padding: 10px 20px;
+        }
+	
+	.hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+    </style>

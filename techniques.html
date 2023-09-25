@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Underwater Image Enhancement: An Overview</title>
+    <style>
+     body {
+        font-family: Arial, sans-serif;
+	background-image: url('image3.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        margin: 0; /* Reset default margin */
+    }
+    header, nav {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        top: 0;
+    }
+    section {
+        padding-top: 70px; /* Adjust this value to leave space for the fixed header */
+        margin: 20px;
+        background-color: rgba(242, 242, 242, 0.8);
+    } 
+	nav a {
+            padding: 14px 20px;
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(242, 242, 242, 0.8);
+        }
+        .image-example {
+            width: 300px;
+        }
+        .enhanced {
+            filter: contrast(1.2) saturate(1.2);
+        }
+
+	.image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px; /* Add margin between images and button */
+        }
+	  button {
+            padding: 10px 20px;
+        }
+    </style>
+    <script>
+        function toggleImage() {
+            const image = document.getElementById('enhanceImage');
+            image.classList.toggle('enhanced');
+        }
+    </script>
+   <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+
+<header>
+    <h1  src="image3.jpg" alt="Image Description" style="width: 100%; height: auto;">Underwater Image Enhancement: An Overview</h1>
+</header>
+
+<nav>
+    <a href="index.html">About Me</a>
+    <a href="introduction.html">Introduction</a>
+    <a href="challenges.html">Challenges</a>
+    <a href="physics.html">Physics</a>
+    <a href="techniques.html">Techniques</a>
+    <a href="applications.html">Applications</a>
+    <a href="conclusion.html">Conclusion</a>
+</nav>
+<section id="techniques"  class="hidden">
+    <h2>Techniques</h2>
+    <p>Various techniques exist for the purpose of underwater image enhancement. They can broadly be classified into traditional and deep learning-based methods.</p>
+
+    <h3>Traditional Methods</h3>
+    <ul>
+        <li>
+            <strong>Histogram Equalization:</strong> Improves the contrast by redistributing the intensity levels across the histogram.
+        </li>
+        <li>
+            <strong><a href="https://en.wikipedia.org/wiki/Contrast_Limited_Adaptive_Histogram_Equalization">CLAHE (Contrast Limited Adaptive Histogram Equalization):</a></strong> A more advanced form of histogram equalization that works on small regions in the image, enhancing local contrast.
+        </li>
+        <li>
+            <strong><a href="https://en.wikipedia.org/wiki/Gamma_correction">Gamma Correction:</a></strong> A nonlinear operation used to encode and decode luminance in images.
+        </li>
+        <li>
+            <strong><a href="https://en.wikipedia.org/wiki/Adaptive_histogram_equalization">AHE (Adaptive Histogram Equalization):</a></strong> An adaptive variant of histogram equalization that takes into account the surrounding regions.
+        </li>
+        <li>
+            <strong><a href="https://en.wikipedia.org/wiki/Retinex">Retinex-based Methods:</a></strong> Designed to separate the illumination and reflectance components of an image, thus enhancing it.
+        </li>
+        <li>
+            <strong><a href="https://en.wikipedia.org/wiki/Dark_channel_prior">Dark Channel Prior:</a></strong> A technique mainly used for haze removal, also effective in enhancing underwater images.
+        </li>
+        <!-- Add more techniques as required -->
+    </ul>
+
+    <!-- Deep Learning Methods (as previously described) -->
+    <h3>Deep Learning Methods</h3>
+    <ul>
+        <li><strong>CNN (Convolutional Neural Networks):</strong> These neural networks are trained to automatically and adaptively learn spatial hierarchies of features.</li>
+        <li><strong>Autoencoders:</strong> These are neural networks trained to encode essential features of an image and then decode it, often improving its quality.</li>
+        <li><strong>Generative Adversarial Networks (GANs):</strong> These consist of two neural networks, the generator and the discriminator, working in tandem to produce enhanced images that are nearly indistinguishable from real images.</li>
+    </ul>
+<div class="image-container">
+    <img id="originalImage" src="degraded.jpg" alt="Original Image" class="image-example">
+        <img id="enhancedImage" src="enhanced.jpg" alt="Enhanced Image" class="image-example enhanced" style="display: none;">
+        <button onclick="toggleImage()">Click Here to Enhance Degraded Image</button>
+</div>
+</section>
+ <script src="script.js"></script>
+ <script>
+       function toggleImage() {
+            const originalImage = document.getElementById('originalImage');
+            const enhancedImage = document.getElementById('enhancedImage');
+
+            // Toggle the display of the images
+            if (enhancedImage.style.display === 'none') {
+                enhancedImage.style.display = 'inline-block';
+                originalImage.style.display = 'none';
+            } else {
+                enhancedImage.style.display = 'none';
+                originalImage.style.display = 'inline-block';
+            }
+        }
+    </script>
+
+
+</body>
+</html>
