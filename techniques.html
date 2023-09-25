@@ -73,13 +73,13 @@
 </header>
 
 <nav>
-    <a href="index.html">About Me</a>
-    <a href="introduction.html">Introduction</a>
+    <a href="index.html">Introduction</a>
     <a href="challenges.html">Challenges</a>
     <a href="physics.html">Physics</a>
     <a href="techniques.html">Techniques</a>
     <a href="applications.html">Applications</a>
     <a href="conclusion.html">Conclusion</a>
+    <a href="About.html">About Me</a>
 </nav>
 <section id="techniques"  class="hidden">
     <h2>Techniques</h2>
@@ -88,10 +88,11 @@
     <h3>Traditional Methods</h3>
     <ul>
         <li>
-            <strong>Histogram Equalization:</strong> Improves the contrast by redistributing the intensity levels across the histogram.
+            <strong><a href="https://en.wikipedia.org/wiki/Histogram_equalization">Histogram Equalization:</a></strong> Underwater images often require image enhancement for improved quality. As such, there are several methods available in the literature to address this issue. In this study, a new underwater image enhancement method is proposed. This method employs the HSV, V transform algorithm, and histogram equalization techniques. Initially, the RGB image is separated into its R, G, and B components, and then converted into the HSV color space. The V element is then extended within a specified interval before converting the image back to the RGB color space. Histogram equalization is then applied to each of the R, G, and B components, and the components are combined to form a color image. Finally, a Gaussian low-pass filter is applied to the image. The performance of the proposed method is compared to that of other studies using mean value and entropy metric, which demonstrate that the proposed method significantly improves underwater image quality
         </li>
         <li>
-            <strong><a href="https://en.wikipedia.org/wiki/Contrast_Limited_Adaptive_Histogram_Equalization">CLAHE (Contrast Limited Adaptive Histogram Equalization):</a></strong> A more advanced form of histogram equalization that works on small regions in the image, enhancing local contrast.
+            <strong><a href="https://en.wikipedia.org/wiki/Contrast_Limited_Adaptive_Histogram_Equalization">CLAHE (Contrast Limited Adaptive Histogram Equalization):</a></strong> Ordinary AHE tends to over-amplify the contrast in near-constant regions of the image. It is originally developed for the enhancement of low-contrast images.CLAHE is a variant of adaptive histogram equalization in which contrast amplification is limited, so as to reduce this problem of noise amplification. In order to limit noise amplification used CLAHE.In CLAHE, the contrast-limited procedure has to be applied for each neighbourhood from which the transformation function is derived. Rather than taking the 
+whole image, CLAHE prevents over-amplification by dividing the image into small data regions called tiles and performing contrast enhancement. And these tiles are rejoined to get an overall enhanced image. It is applied over both types of images grayscale and colored 
         </li>
         <li>
             <strong><a href="https://en.wikipedia.org/wiki/Gamma_correction">Gamma Correction:</a></strong> A nonlinear operation used to encode and decode luminance in images.

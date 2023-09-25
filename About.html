@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Underwater Image Enhancement: An Overview</title>
     <style>
      body {
         font-family: Arial, sans-serif;
-	background-image: url('image4.jpg');
+	background-image: url('image7.jpg');
         background-size: cover;
         background-attachment: fixed;
         margin: 0; /* Reset default margin */
@@ -55,7 +54,29 @@
 	  button {
             padding: 10px 20px;
         }
-    </style>
+	
+#about-me {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#about-me .image-column, #about-me .info-column {
+    flex-basis: 50%;
+    padding: 0.5em;
+}
+
+#about-me img {
+    max-width: 100%;
+    height: auto;
+}
+
+.info-section h2, .info-section p {
+    margin: 0.5em 0;
+}
+
+</style>
     <script>
         function toggleImage() {
             const image = document.getElementById('enhanceImage');
@@ -68,9 +89,6 @@
 </head>
 <body>
 
-<header>
-    <h1  src="image4.jpg" alt="Image Description" style="width: 100%; height: auto;">Underwater Image Enhancement: An Overview</h1>
-</header>
 
 <nav>
     <a href="index.html">Introduction</a>
@@ -81,28 +99,53 @@
     <a href="conclusion.html">Conclusion</a>
     <a href="About.html">About Me</a>
 </nav>
-<section id="physics"  class="hidden">
-    <h2>Physics of Underwater Imaging</h2>
-    <p>
-        The physics governing underwater imaging involves several critical concepts, crucial for both capturing and enhancing images:
-    </p>
-    <ul>
-        <li>
-            <strong>Snell's Law:</strong> Refraction affects how we perceive underwater objects. Snell's Law describes this phenomenon as
-            \( n_1 \sin \theta_1 = n_2 \sin \theta_2 \)
-        </li>
-        <li>
-            <strong>Beer-Lambert Law:</strong> This law describes how light absorption and scattering work:
-            \( I = I_0 e^{-\alpha x} \),
-            where \( I_0 \) is the initial intensity, \( \alpha \) is the absorption coefficient, and \( x \) is the distance.
-        </li>
-        <li>
-            <strong>Light Attenuation:</strong> The intensity of light decreases exponentially with depth due to absorption and scattering. This concept can be quantified as:
-            \( I(z) = I_0 \cdot e^{-kz} \),
-            where \( I_0 \) is the initial intensity, \( k \) is the attenuation coefficient, and \( z \) is the depth.
-        </li>
-    </ul>
+
+
+
+<section id="about-me" class="hidden">
+    <div class="image-column">
+        <img src="image8.jpg" alt="Your Picture" >
+    </div>
+    <div class="info-column">
+        <div class="info-section">
+            <h2>Name</h2>
+            <p>Pranjali Singh</p>
+        </div>
+        <div class="info-section">
+            <h2>Current Position</h2>
+            <p>PhD Scholar at Indian Institute of Technology, Guwahati, Assam</p>
+        </div>
+        <div class="info-section">
+            <h2>Research Topic</h2>
+            <p>Underwater Image Enhancement</p>
+        </div>
+        <div class="info-section">
+            <h2>Research Interest</h2>
+            <p>Image Enhancement, Machine Learning, Robotics</p>
+        </div>
+        <div class="info-section">
+            <h2>Description</h2>
+            <p>My work focuses on Underwater Image Enhancement. These improvements range from basic adjustments like altering brightness and contrast, to complex manipulations aimed at color correction, reducing blurriness, and mitigating the effects of particle scattering in the water.</p>
+        </div>
+    </div>
 </section>
+
 <script src="script.js"></script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
