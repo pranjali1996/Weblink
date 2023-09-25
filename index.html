@@ -45,6 +45,16 @@
         .enhanced {
             filter: contrast(1.2) saturate(1.2);
         }
+
+	.image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px; /* Add margin between images and button */
+        }
+	  button {
+            padding: 10px 20px;
+        }
     </style>
     <script>
         function toggleImage() {
@@ -106,6 +116,9 @@
             <strong>Suspended Particles:</strong> The presence of particulate matter like sand, plankton, or marine snow is common in underwater environments. These particles can obstruct and scatter light, adding noise to the image. They can also cause shadowing effects or even form visible streaks or spots when they are close to the camera lens, creating difficulties in post-processing and analysis.
         </li>
     </ul>
+	<div style="text-align: center;">
+        <img src="Absorption.jpg" alt="Challenges Image" style="width: 50%;" />
+    </div>
 </section>
 
 <section id="physics">
@@ -166,15 +179,15 @@
         <li><strong>Autoencoders:</strong> These are neural networks trained to encode essential features of an image and then decode it, often improving its quality.</li>
         <li><strong>Generative Adversarial Networks (GANs):</strong> These consist of two neural networks, the generator and the discriminator, working in tandem to produce enhanced images that are nearly indistinguishable from real images.</li>
     </ul>
-
+<div class="image-container">
     <img id="originalImage" src="degraded.jpg" alt="Original Image" class="image-example">
         <img id="enhancedImage" src="enhanced.jpg" alt="Enhanced Image" class="image-example enhanced" style="display: none;">
         <button onclick="toggleImage()">Click Here to Enhance Degraded Image</button>
-        
+</div>
 </section>
  
  <script>
-        function toggleImage() {
+       function toggleImage() {
             const originalImage = document.getElementById('originalImage');
             const enhancedImage = document.getElementById('enhancedImage');
 
