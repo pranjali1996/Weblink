@@ -11,6 +11,7 @@
         background-attachment: fixed;
         margin: 0; /* Reset default margin */
     }
+
     header, nav {
         width: 100%;
         background-color: #4CAF50;
@@ -88,23 +89,102 @@
     <h3>Traditional Methods</h3>
     <ul>
         <li>
-            <strong><a href="https://en.wikipedia.org/wiki/Histogram_equalization">Histogram Equalization:</a></strong> Underwater images often require image enhancement for improved quality. As such, there are several methods available in the literature to address this issue. In this study, a new underwater image enhancement method is proposed. This method employs the HSV, V transform algorithm, and histogram equalization techniques. Initially, the RGB image is separated into its R, G, and B components, and then converted into the HSV color space. The V element is then extended within a specified interval before converting the image back to the RGB color space. Histogram equalization is then applied to each of the R, G, and B components, and the components are combined to form a color image. Finally, a Gaussian low-pass filter is applied to the image. The performance of the proposed method is compared to that of other studies using mean value and entropy metric, which demonstrate that the proposed method significantly improves underwater image quality
+            <strong><a href="https://en.wikipedia.org/wiki/Histogram_equalization">Histogram Equalization:</a></strong> <p>
+        Histogram equalization is a technique used to enhance the contrast of an image by redistributing the intensity levels across the histogram. It helps in improving the visibility of details in an image.
+    </p>
+
+    <h3>Mathematics</h3>
+    <p>
+        Histogram equalization involves computing a transformation function \( T \) such that the cumulative distribution function (CDF) of the input image is transformed into a linear function. Let \( p_r(r_k) \) be the probability of occurrence of intensity \( r_k \) in the input image and \( s_k \) be the corresponding intensity in the output image. The transformation function \( T \) is given by:
+    </p>
+    <p style="margin-left: 20px;">
+        \( T(r_k) = \left(\frac{L - 1}{M \times N}\right) \sum_{j=0}^{k} p_r(r_j) \), for \( k = 0, 1, ..., L-1 \)
+    </p>
+
+    <p>
+        Where:
+        <ul style="margin-left: 20px;">
+            <li> \( L \) is the number of intensity levels (typically 256 for 8-bit images) </li>
+            <li> \( M \) and \( N \) are the dimensions of the image (width and height) </li>
+            <li> \( p_r(r_k) \) is the probability of occurrence of intensity \( r_k \) in the input image </li>
+        </ul>
+    </p>
+
+    <p>
+        After computing the transformation function \( T \), each pixel intensity \( r \) in the input image is mapped to the corresponding intensity \( s \) in the output image using \( s = T(r) \).
+    </p>
+        </li>
+<li>
+            <strong><a href="https://en.wikipedia.org/wiki/Adaptive_histogram_equalization">AHE (Adaptive Histogram Equalization):</a></strong><p>Adaptive Histogram Equalization is an enhancement technique that improves the contrast of an image by considering the surrounding regions of each pixel. It is particularly useful in dealing with images with varying local contrast.</p>
+
+    <p>AHE divides the image into small regions and performs histogram equalization separately for each region. This ensures that the contrast is enhanced based on the characteristics of the local neighborhood, resulting in improved visibility of details.</p>
+
+    <p>The transformation function for AHE is computed locally for each region. Let \(p_i\) be the histogram of intensity levels in a specific region \(i\), and \(c_i\) be the cumulative distribution function (CDF) for that region. The transformation function \(T_i\) for region \(i\) is given by:</p>
+
+    <p>Equation: \(T_i(x) = \frac{{L - 1}}{{MN}} \sum_{j=0}^{x} p_i(j)\), where \(L\) is the number of intensity levels, \(MN\) is the total number of pixels in the region, and \(x\) is the current intensity level.</p>
+
+    <p>The enhanced intensity of a pixel is determined by applying \(T_i\) based on its region's transformation function.</p>
+
+    <p>AHE is effective in enhancing images with non-uniform lighting conditions or varying contrast levels across the image.</p>
         </li>
         <li>
-            <strong><a href="https://en.wikipedia.org/wiki/Contrast_Limited_Adaptive_Histogram_Equalization">CLAHE (Contrast Limited Adaptive Histogram Equalization):</a></strong> Ordinary AHE tends to over-amplify the contrast in near-constant regions of the image. It is originally developed for the enhancement of low-contrast images.CLAHE is a variant of adaptive histogram equalization in which contrast amplification is limited, so as to reduce this problem of noise amplification. In order to limit noise amplification used CLAHE.In CLAHE, the contrast-limited procedure has to be applied for each neighbourhood from which the transformation function is derived. Rather than taking the 
-whole image, CLAHE prevents over-amplification by dividing the image into small data regions called tiles and performing contrast enhancement. And these tiles are rejoined to get an overall enhanced image. It is applied over both types of images grayscale and colored 
+            <strong><a href="https://en.wikipedia.org/wiki/Contrast_Limited_Adaptive_Histogram_Equalization">CLAHE (Contrast Limited Adaptive Histogram Equalization):</a></strong> <p>CLAHE is a variant of adaptive histogram equalization that addresses the issue of over-amplification of contrast, especially in near-constant regions of the image. It enhances the contrast of an image while limiting noise amplification.</p>
+
+    <h4>Mathematical Equation:</h4>
+    <p>
+        The contrast-limited procedure in CLAHE is applied for each neighborhood to derive the transformation function. Instead of taking the entire image, CLAHE divides the image into small data regions called tiles. Contrast enhancement is then performed for each tile. Finally, these tiles are rejoined to obtain an overall enhanced image.
+    </p>
         </li>
         <li>
-            <strong><a href="https://en.wikipedia.org/wiki/Gamma_correction">Gamma Correction:</a></strong> A nonlinear operation used to encode and decode luminance in images.
+            <strong><a href="https://en.wikipedia.org/wiki/Gamma_correction">Gamma Correction:</a></strong>    <p>Gamma correction is a nonlinear operation used to encode and decode luminance in images. It's a crucial step in image processing to ensure that the image appears correct and natural on various display devices.</p>
+
+    <h4>Mathematical Explanation</h4>
+    <p>In gamma correction, each pixel value (\(P_{\text{out}}\)) in the image is typically adjusted from its original value (\(P_{\text{in}}\)) using the gamma function:</p>
+    <p style="text-align: center;">\(P_{\text{out}} = P_{\text{in}}^\gamma\)</p>
+
+    <p>Here, \(P_{\text{in}}\) is the original pixel value, \(P_{\text{out}}\) is the corrected pixel value, and \(\gamma\) (gamma) is the correction factor or gamma value. The gamma value is usually in the range of 0.5 to 2.2.</p>
+
+    <p>For dark regions, a gamma less than 1 (\(\gamma < 1\)) is used to brighten the image. For bright regions, a gamma greater than 1 (\(\gamma > 1\)) is used to darken the image.</p>
         </li>
         <li>
-            <strong><a href="https://en.wikipedia.org/wiki/Adaptive_histogram_equalization">AHE (Adaptive Histogram Equalization):</a></strong> An adaptive variant of histogram equalization that takes into account the surrounding regions.
+            <strong><a href="https://en.wikipedia.org/wiki/Retinex">Retinex-based Methods:</a></strong> <p>Retinex-based methods are designed to separate the illumination and reflectance components of an image, thus enhancing it. These methods are particularly useful for improving the quality of underwater images by effectively addressing issues related to uneven lighting and color cast.</p>
+
+    <h4>Brief Description</h4>
+    <p>The Retinex algorithm operates on the principle that an image is a product of the reflectance of the scene and the illumination falling on it. By separating these components, the algorithm enhances the reflectance, improving the overall image quality.</p>
+
+    <h4>Mathematics</h4>
+    <p>The Retinex algorithm can be mathematically expressed as follows:</p>
+    <p>
+        \( S(x, y) = R(x, y) \times I(x, y) \)
+    </p>
+    <p>
+        Where:
+        <ul>
+            <li>\( S(x, y) \) is the observed image.</li>
+            <li>\( R(x, y) \) is the reflectance component.</li>
+            <li>\( I(x, y) \) is the illumination component.</li>
+        </ul>
+    </p>
+    <p>
+        The algorithm aims to estimate \( R(x, y) \) by using properties of reflectance. Various Retinex-based algorithms, such as Single-scale Retinex, Multi-scale Retinex, and Color Restoration, apply different methodologies to achieve this separation and enhance the image accordingly.
+    </p>
         </li>
         <li>
-            <strong><a href="https://en.wikipedia.org/wiki/Retinex">Retinex-based Methods:</a></strong> Designed to separate the illumination and reflectance components of an image, thus enhancing it.
-        </li>
-        <li>
-            <strong><a href="https://en.wikipedia.org/wiki/Dark_channel_prior">Dark Channel Prior:</a></strong> A technique mainly used for haze removal, also effective in enhancing underwater images.
+            <strong><a href="https://en.wikipedia.org/wiki/Dark_channel_prior">Dark Channel Prior:</a></strong> <p>The Dark Channel Prior is a technique primarily used for haze removal, and it's also effective in enhancing underwater images. It operates on the principle that in most outdoor natural images, at least one color channel tends to have low intensity (close to zero) in haze-free regions.</p>
+
+    <p>The dark channel of an image is defined as the minimum intensity value across all color channels for each pixel:</p>
+    <p style="font-family: 'Courier New', monospace;">\( J(x) = \min_{y \in \text{neighborhood}(x)} (\min_{c} I(y)_c) \)</p>
+
+    <p>where:
+        <br>
+        \( J(x) \) is the dark channel value at pixel \( x \),
+        <br>
+        \( I(y)_c \) is the intensity of channel \( c \) at pixel \( y \),
+        <br>
+        \( \text{neighborhood}(x) \) is a local patch around pixel \( x \).
+    </p>
+
+    <p>By estimating the dark channel, haze or underwater distortions can be effectively reduced by enhancing the contrast in the image.</p>
         </li>
         <!-- Add more techniques as required -->
     </ul>
@@ -112,9 +192,61 @@ whole image, CLAHE prevents over-amplification by dividing the image into small 
     <!-- Deep Learning Methods (as previously described) -->
     <h3>Deep Learning Methods</h3>
     <ul>
-        <li><strong>CNN (Convolutional Neural Networks):</strong> These neural networks are trained to automatically and adaptively learn spatial hierarchies of features.</li>
-        <li><strong>Autoencoders:</strong> These are neural networks trained to encode essential features of an image and then decode it, often improving its quality.</li>
-        <li><strong>Generative Adversarial Networks (GANs):</strong> These consist of two neural networks, the generator and the discriminator, working in tandem to produce enhanced images that are nearly indistinguishable from real images.</li>
+        <li><strong>CNN (Convolutional Neural Networks):</strong>     <p>Convolutional Neural Networks (CNNs) are a class of deep learning models specifically designed for processing grid-like data, such as images and videos. They have revolutionized various computer vision tasks and are widely used in image recognition, object detection, and more.</p>
+
+    <h3>Main Concepts</h3>
+    <p>CNNs consist of several key concepts:</p>
+    <ul>
+        <li><strong>Convolutional Layers:</strong> These layers apply convolution operations to the input data, using filters (also called kernels) to extract features from the input.</li>
+        <li><strong>Pooling Layers:</strong> Pooling layers reduce the spatial dimensions of the input, which helps in reducing computation and controlling overfitting.</li>
+        <li><strong>Activation Functions:</strong> Activation functions introduce non-linearity into the model, enabling it to learn complex patterns.</li>
+        <li><strong>Fully Connected Layers:</strong> Fully connected layers connect every neuron from the previous layer to the current layer, aiding in learning high-level features.</li>
+    </ul>
+
+    <h3>Mathematics</h3>
+    <p>In a convolutional layer, the convolution operation is applied to the input image using a filter (kernel). For a given filter \( K \) and input patch \( I \), the output \( O \) is calculated as:</p>
+    <p style="text-align: center;">
+        \( O(i, j) = \sum \limits_m \sum \limits_n I(i + m, j + n) \times K(m, n) \)
+    </p>
+    <p>where \( I(i, j) \) is the pixel value at position \( (i, j) \) in the input, and \( K(m, n) \) is the filter value at position \( (m, n) \).</p></li>
+        <li><strong>Autoencoders:</strong> <p>Autoencoders are a type of artificial neural network used for unsupervised learning. They aim to learn efficient codings or representations of input data. The architecture typically consists of an encoder and a decoder, where the encoder compresses the input into a lower-dimensional space (encoding), and the decoder attempts to reconstruct the original input from this compressed representation.</p>
+
+    <h4>Architecture:</h4>
+    <p>An autoencoder typically consists of three main parts:</p>
+    <ul>
+        <li><strong>Encoder:</strong> This part compresses the input data into a lower-dimensional latent space representation.</li>
+        <li><strong>Latent Space:</strong> This is the compressed representation of the input in a lower-dimensional space.</li>
+        <li><strong>Decoder:</strong> This part reconstructs the original input from the latent space representation.</li>
+    </ul>
+
+    <h4>Mathematical Representation:</h4>
+    <p>Let \(X\) be the input data and \(Z\) be the latent space representation. The encoder function \(f_{\text{enc}}\) maps \(X\) to \(Z\), and the decoder function \(f_{\text{dec}}\) maps \(Z\) back to a reconstructed input \(\hat{X}\). The training process aims to minimize the reconstruction error:</p>
+
+    <p>\[
+    \text{Loss} = \sum_{i=1}^{N} \left\| X_i - \hat{X}_i \right\|
+    \]</p>
+
+    <p>where \(N\) is the number of samples, \(X_i\) is the \(i\)-th input, and \(\hat{X}_i\) is the reconstructed output for the \(i\)-th input.</p></li>
+        <li><strong>Generative Adversarial Networks (GANs):</strong> <p>Generative Adversarial Networks (GANs) are a class of artificial intelligence algorithms used in unsupervised machine learning, introduced by Ian Goodfellow and his colleagues in 2014. GANs consist of two neural networks, the generator and the discriminator, which are trained simultaneously through adversarial training.</p>
+
+<h4>Working Principle</h4>
+
+<p>The generator network aims to create data (e.g., images) that is similar to a given dataset, while the discriminator network tries to distinguish between real data from the dataset and the generated data. This results in a competition between the generator and the discriminator, driving the generator to create increasingly realistic data.</p>
+
+<h4>Mathematics</h4>
+
+<p>In GANs, let \( G \) be the generator neural network and \( D \) be the discriminator neural network. The generator tries to create data \( x \) that resembles the real data distribution \( p_{\text{real}}(x) \), while the discriminator tries to distinguish between real and generated data.</p>
+
+<p>The training process involves the following steps:</p>
+
+<ol>
+    <li>The generator creates data \( G(z) \), where \( z \) is a random noise vector.</li>
+    <li>The discriminator tries to distinguish between real data \( x \) and generated data \( G(z) \).</li>
+    <li>The generator adjusts its parameters to maximize \( \log(D(G(z))) \), trying to make \( G(z) \) look real.</li>
+    <li>The discriminator adjusts its parameters to maximize \( \log(D(x)) + \log(1 - D(G(z))) \), trying to correctly classify real and generated data.</li>
+</ol>
+
+<p>This adversarial training process results in the generator creating data that is increasingly similar to the real data distribution.</p></li>
     </ul>
 <div class="image-container">
     <img id="originalImage" src="degraded.jpg" alt="Original Image" class="image-example">
@@ -124,6 +256,7 @@ whole image, CLAHE prevents over-amplification by dividing the image into small 
 </section>
  <script src="script.js"></script>
  <script>
+	
        function toggleImage() {
             const originalImage = document.getElementById('originalImage');
             const enhancedImage = document.getElementById('enhancedImage');
