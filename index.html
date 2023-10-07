@@ -2,15 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Underwater Image Enhancement: An Overview</title>
+    <title>Pranjali Singh</title>
     <style>
-     body {
+          body {
         font-family: Arial, sans-serif;
-	background-image: url('image3.jpg');
+	background-image: url('image5.jpg');
         background-size: cover;
         background-attachment: fixed;
         margin: 0; /* Reset default margin */
     }
+        .container {
+            display: flex;
+            width: 80%;
+        }
+        .left {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .right {
+            flex: 1;
+            padding: 20px;
+            background-color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .circle img {
+            width: 100%;
+            height: auto;
+        }
+
     header, nav {
         width: 100%;
         background-color: #4CAF50;
@@ -55,7 +86,29 @@
 	  button {
             padding: 10px 20px;
         }
-    </style>
+	
+#about-me {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#about-me .image-column, #about-me .info-column {
+    flex-basis: 50%;
+    padding: 0.5em;
+}
+
+#about-me img {
+    max-width: 100%;
+    height: auto;
+}
+
+.info-section h2, .info-section p {
+    margin: 0.5em 0;
+}
+
+</style>
     <script>
         function toggleImage() {
             const image = document.getElementById('enhanceImage');
@@ -69,31 +122,68 @@
 <body>
 
 <header>
-    <h1  src="image3.jpg" alt="Image Description" style="width: 100%; height: auto;">Underwater Image Enhancement: An Overview</h1>
+    <h1  src="image3.jpg" alt="Image Description" style="width: 100%; height: auto;">Pranjali Singh</h1>
 </header>
 
 <nav>
-    <a href="index.html">Introduction</a>
+    <a href="index.html">About Me</a>
+    <a href="introduction.html">Introduction</a>
     <a href="challenges.html">Challenges</a>
     <a href="physics.html">Physics</a>
     <a href="techniques.html">Techniques</a>
     <a href="applications.html">Applications</a>
-    <a href="About.html">About Me</a>
 </nav>
-<section id="introduction"  class="hidden">
-    <h2>Introduction</h2>
-    <p>
-        The world beneath the surface of the water bodies is a realm of visual wonder filled with vibrant marine life, mesmerizing landscapes, and intricate ecosystems. Yet, capturing this beauty through photography or videography poses unique challenges such as reduced visibility, altered colour spectrums, and distorted perspectives. These factors often result in images that are hazy, monochromatic, or lacking in detail.
-    </p>
-    <p>
-        This is where the field of Underwater Image Enhancement comes into play. It is a specialized domain within the broader area of image processing and computer vision, specifically focused on improving the visual quality of underwater images and videos. These improvements can range from basic adjustments, like altering brightness and contrast, to complex manipulations aimed at colour correction, reducing blurriness, and mitigating the effects of particle scattering in the water.
-    </p>
-    <p>
-        The ultimate goal of underwater image enhancement is not just to produce aesthetically pleasing visuals but also to aid in scientific research, underwater exploration, and environmental monitoring. By improving the clarity and fidelity of underwater images, researchers and scientists can gather more accurate data, which in turn contributes to our understanding and conservation of aquatic ecosystems.
-    </p>
+
+
+
+<section id="about-me" class="hidden">
+<div class="container">
+    <div class="left">
+        <h2>Description of Work</h2>
+
+<p>Welcome to my world of underwater image enhancement! I'm passionate about making underwater pictures look amazing, and it's not just about making them pretty. This technology is super important for our national security and naval operations, helping with things like better underwater reconnaissance, precise submarine operations, and finding and handling underwater mines.</p>
+<p>I use various techniques, from basic methods like Histogram Equalization to the cutting-edge power of deep learning. These techniques don't just improve how the images look; they also help us get more accurate and useful data, which is crucial for both science and industry.</p>
+<p>Of course, there are challenges. Making these improvements happen quickly in tough underwater conditions is a big task. But I'm optimistic! New technology and smart computer programs are making it easier. I see a future where enhancing underwater images is faster and better than ever.</p>
+<p>Looking ahead, I'm excited to be a part of the ongoing progress in underwater image enhancement. These tools I work with aren't just for taking cool pictures—they help us explore and protect the underwater world. By using technology wisely and responsibly, I believe we can create a safer and brighter future beneath the waves.</p>
+    </div>
+    <div class="right">
+        <div class="circle">
+            <img src="image8.jpg" alt="Profile Image">
+        </div>
+       <div class="info-column">
+        <div class="info-section">
+            <h4>Current Position</h4>
+            <p>PhD Scholar at Indian Institute of Technology, Guwahati, Assam</p>
+        </div>
+        <div class="info-section">
+            <h4>Research Topic</h4>
+            <p>Underwater Image Enhancement</p>
+        </div>
+        <div class="info-section">
+            <h4>Research Interest</h4>
+            <p>Image Enhancement, Machine Learning, Robotics</p>
+        </div>
+</div>
+
+        
 </section>
 
-
 <script src="script.js"></script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
